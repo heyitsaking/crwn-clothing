@@ -21,10 +21,12 @@ const CartDropdown = ({ cartItems, history, dispatch }) => (
         <span className="empty-message">Your cart is empty</span>
       )}
     </div>
-    <CustonButton onClick={() => {
-      history.push("/checkout");
-      dispatch(toggleCartHidden());
-    }}>
+    <CustonButton
+      onClick={() => {
+        history.push("/checkout");
+        dispatch(toggleCartHidden());
+      }}
+    >
       GO TO CHECKOUT
     </CustonButton>
   </div>
