@@ -56,5 +56,8 @@
   "bugs": {
     "url": "https://github.com/heyitsaking/crwn-clothing/issues"
   },
-  "homepage": "https://github.com/"
+  "homepage": "https://github.com/",
+  "engines": {
+    "node": "14.x"
+  }
 }
