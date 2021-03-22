@@ -29,7 +29,7 @@ export const signUpStart = (userInfo) => ({
 });
 
 export const signUpSuccess = ({ user, additionalData }) => ({
-  type: UserActionTypes.SING_UP_SUCCESS,
+  type: UserActionTypes.SIGN_UP_SUCCESS,
   payload: { user, additionalData },
 });
 
