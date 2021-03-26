@@ -12,15 +12,22 @@ const config = {
   measurementId: "G-C01NDEV6F4",
 };
 
+if (!firebase.apps.length) {
+  firebase.initializeApp(config);
+} else {
+  firebase.app(); // if already initialized, use that one
+}
+
 export const createUserProfileDocument = async (userAuth, additionalData) => {
   if (!userAuth) return;
+
   const userRef = firestore.doc(`users/${userAuth.uid}`);
 
   const snapShot = await userRef.get();
+
   if (!snapShot.exists) {
     const { displayName, email } = userAuth;
     const createdAt = new Date();
-
     try {
       await userRef.set({
         displayName,
@@ -29,7 +36,7 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
         ...additionalData,
       });
     } catch (error) {
-      console.log("Error creating user", error.message);
+      console.log("error creating user", error.message);
     }
   }
 
@@ -51,7 +58,7 @@ export const addCollectionAndDocuments = async (
   return await batch.commit();
 };
 
-export const convertCollectionSnapshotToMap = (collections) => {
+export const convertCollectionsSnapshotToMap = (collections) => {
   const transformedCollection = collections.docs.map((doc) => {
     const { title, items } = doc.data();
 
@@ -68,12 +75,6 @@ export const convertCollectionSnapshotToMap = (collections) => {
     return accumulator;
   }, {});
 };
-
-if (!firebase.apps.length) {
-  firebase.initializeApp(config);
-} else {
-  firebase.app(); // if already initialized, use that one
-}
 
 export const getCurrentUser = () => {
   return new Promise((resolve, reject) => {
