@@ -22,6 +22,10 @@ export const ImageContainer = styled.div`
 
 export const TextContainer = styled.span`
   width: 23%;
+
+  @media screen and (max-width: 320px) {
+    font-size: 16px;
+  }
 `;
 
 export const QuantityContainer = styled(TextContainer)`
@@ -33,6 +37,10 @@ export const QuantityContainer = styled(TextContainer)`
 
   div {
     cursor: pointer;
+  }
+
+  @media screen and (max-width: 320px) {
+    margin: 0;
   }
 `;
 

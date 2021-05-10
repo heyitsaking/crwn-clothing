@@ -7,6 +7,7 @@ import CustomButton from "../custom-button/custom-button.component";
 import { signUpStart } from "../../redux/user/user.actions";
 
 import { SignUpContainer, SignUpTitle } from "./sign-up.styles";
+import { ButtonsBarContainer } from "../sign-in/sign-in.styles";
 
 const SignUp = ({ signUpStart }) => {
   const [userCredentials, setUserCredentials] = useState({
@@ -72,7 +73,9 @@ const SignUp = ({ signUpStart }) => {
           label="Confirm Password"
           required
         />
-        <CustomButton type="submit">Sign Up</CustomButton>
+        <ButtonsBarContainer>
+          <CustomButton type="submit">Sign Up</CustomButton>
+        </ButtonsBarContainer>
       </form>
     </SignUpContainer>
   );
