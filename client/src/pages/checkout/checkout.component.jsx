@@ -17,7 +17,7 @@ import {
   selectCartTotal,
 } from "../../redux/cart/cart.selectors";
 
-const CheckoutPage = ({ cartItems, total }) => {
+export const CheckoutPage = ({ cartItems, total }) => {
   // Always sets test card year to current year plus 3
   const yearForCard = (new Date().getFullYear() + 3).toString().substr(2);
 

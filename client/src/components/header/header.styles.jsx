@@ -51,3 +51,5 @@ export const OptionLink = styled(Link)`
     padding: 10px 10px;
   }
 `;
+
+OptionLink.displayName = "OptionLink";
